@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+
+body {
+    margin: -8px;
+    padding: 0;
+    font-family: 'P', sans-serif;
+    background-color: #e0f7fa;
+    color: #333;
+}

@@ -1,0 +1,67 @@
+<body>
+  <div class="content" *ngIf="weather">
+  <div class="column">
+    <div class="left-side">
+      <div class="search-container" [formGroup]="searchForm">
+        <button class="search-button" (click)="searchWeather()">Search for City</button>
+        <input type="text" class="search-input" placeholder="Enter Any City" formControlName="city">
+        <button class="search-button show-location-button" (click)="showLocation()">Your Location</button> 
+      </div>
+
+      <h1 class="city-name">{{ currentCity }}</h1>
+      <div class="temperature">
+        <p>Currently {{ selectedTemperatureUnit === 'celsius' ? weather.current.temp_c + '°C' : weather.current.temp_f + '°F' }}</p>
+      </div>
+
+      <div class="weather-info">
+        <img [src]="weather.current.condition.icon" alt="Weather Image" class="weather-icon">
+        <p>{{ weather.current.condition.text }}</p>
+        <div class="additional-info">
+          <div *ngIf="cityNotFound" class="overlay">
+            <div class="city-not-found">
+              <div class="error-dialog">
+                <h3>I can't find anything on what you searched for.</h3>
+                <button (click)="toggleErrorDialog()">Close</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="temperature-options">
+            <label for="temperatureUnit">Temperature: </label>
+            <select id="temperatureUnit" [(ngModel)]="selectedTemperatureUnit" (change)="onTemperatureUnitChange()">
+              <option value="celsius">Celsius (°C)</option>
+              <option value="fahrenheit">Fahrenheit (°F)</option>
+            </select>
+          </div>
+          
+          <div class="data-options">
+            <label for="dataToShow">Data: </label>
+            <select id="dataToShow" [(ngModel)]="selectedDataToShow" (change)="onDataToShowChange()">
+              <option value="heatIndex">Heat Index</option>
+              <option value="windSpeed">Wind Speed</option>
+              <option value="humidity">Humidity</option>
+            </select>
+          </div>
+
+          <p *ngIf="selectedDataToShow === 'heatIndex'">Index: {{ selectedTemperatureUnit === 'celsius' ? weather.current.heatindex_c + '°C' : weather.current.heatindex_f + '°F' }}</p>
+          <p *ngIf="selectedDataToShow === 'windSpeed'">Wind Speed: {{ weather.current.wind_kph }} kph</p>
+          <p *ngIf="selectedDataToShow === 'humidity'">Humidity: {{ weather.current.humidity }}%</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-side" *ngIf="weather">
+      <div class="forecast-container">
+        <div class="forecast-card" *ngFor="let day of forecast">
+          <img [src]="day.day.condition.icon" alt="Weather Image" class="weather-icon">
+          <p>{{ day.day.condition.text }}</p>
+          <p>Wind Speed: {{ day.day.maxwind_kph }} kph</p>
+          <p>Max {{ selectedTemperatureUnit === 'celsius' ? day.day.maxtemp_c + '°C' : day.day.maxtemp_f + '°F' }}</p>
+          <p>Min {{ selectedTemperatureUnit === 'celsius' ? day.day.mintemp_c + '°C' : day.day.mintemp_f + '°F' }}</p>
+          <h3>Expected Weather on {{ day.date }}</h3>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+</body>

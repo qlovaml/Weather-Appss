@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #a9b1c7;
+    background: linear-gradient(to bottom right, rgba(236, 236, 238, 0.95), rgba(63, 63, 95, 0.95));
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.left-side {
+    flex: 1;
+    margin: 5px;
+    padding: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    background: linear-gradient(to bottom right, rgba(42, 104, 98, 0.95), rgba(50, 50, 88, 0.95));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.right-side {
+    flex: 1;
+    margin-top: 0px;
+    height: auto;
+    width: 100%;
+    border-radius: 50px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    text-align: center;
+}
+
+.search-container {
+    display: flex;
+    gap: 50px;
+    margin-top: 10px;
+    font-family: Poppins;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 12px;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f1e7e7;
+    font-family: Poppins;
+    width: 200px;
+    max-width: 100%;
+}
+
+.search-button {
+    padding: 10px 10px;
+    border: none;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
+    background-color: #010307;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 12px;
+    font-family: Poppins;
+}
+
+.search-button.show-location-button {
+    background-color: #02130e;
+}
+
+.search-button:hover {
+    background-color: #0ac288;
+    transform: scale(1.25);
+}
+
+.show-location-button:hover {
+    background-color: #09bd84;
+    transform: scale(1.25);
+}
+
+.city-name {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 70px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #f5efef;
+}
+
+.temperature {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.temperature-options option,
+.data-options option {
+    border: none;
+    appearance: none;
+    width: 80%;
+    color: white;
+    background-color: #9ab1dd;
+    font-family: 'Poppins';
+    align-items: center;
+    text-align: center;
+}
+
+.temperature-options select,
+.data-options select {
+    width: 50%;
+    color: white;
+    background-color: #17191d;
+    flex-direction: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Poppins';
+}
+
+.temperature-options label,
+.data-options label {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: Poppins;
+}
+
+.weather-info {
+    text-align: center;
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.weather-icon {
+    width: 60px;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.additional-info p {
+    margin: 3px 0;
+    font-size: 2rem;
+}
+
+.forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-bottom: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.forecast-card {
+    flex: 0 0 auto;
+    width: 200px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    padding: 4px;
+    color: white;
+    font-family: 'Poppins', Courier, monospace;
+    background: linear-gradient(to bottom right, rgba(42, 104, 98, 0.95), rgba(50, 50, 88, 0.95));
+    margin-top: 0.4rem;
+    transition: transform 0.3s ease;
+}
+
+.forecast-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(139, 97, 97, 0.2);
+}
+
+.forecast-card h3 {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.forecast-card p {
+    margin: 2px 0;
+    font-family: 'Poppins', Times, serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.error-dialog button {
+    flex: 0 0 auto;
+    width: 60px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    font-family: 'Poppins', Courier, monospace;
+    background: linear-gradient(to bottom right, rgba(232, 232, 238, 0.95), rgba(216, 197, 197, 0.95));
+    transition: transform 0.3s ease;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .right-side {
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .forecast-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+    .right-side {
+        width: 100%;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    .forecast-card {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .city-name {
+        font-size: 40px;
+    }
+
+    .temperature {
+        font-size: 20px;
+    }
+
+    .forecast-card {
+        width: calc(100% - 10px);
+        padding: 10px;
+    }
+
+    .weather-info {
+        font-size: 0.9em;
+    }
+}
